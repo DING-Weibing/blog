@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 
-@Component
+//@Component
 public class MybatisDaoFactory implements DaoFactory {
     private final UserDao userDao;
 
