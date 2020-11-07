@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Mapper
 @Component
-public interface UserMapper {
-    Login selectLoginByUsername(String username);
+public interface LoginMapper {
+    Login selectByAccount(String account);
+
+    int insertLogin(Login login);
 }

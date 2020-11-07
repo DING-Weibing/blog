@@ -2,23 +2,23 @@ package com.dwbfrank.blog.dao.mybatis;
 
 import com.dwbfrank.blog.dao.ArticleDao;
 import com.dwbfrank.blog.dao.DaoFactory;
-import com.dwbfrank.blog.dao.UserDao;
+import com.dwbfrank.blog.dao.AuthDao;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
 
 @Component
 public class MybatisDaoFactory implements DaoFactory {
-    private final UserDao userDao;
+    private final AuthDao authDao;
 
     @Inject
-    public MybatisDaoFactory(UserDao userDao) {
-        this.userDao = userDao;
+    public MybatisDaoFactory(AuthDao authDao) {
+        this.authDao = authDao;
     }
 
     @Override
-    public UserDao getUserDao() {
-        return userDao;
+    public AuthDao getUserDao() {
+        return authDao;
     }
 
     @Override

@@ -4,21 +4,9 @@ import com.dwbfrank.blog.model.domain.Login;
 
 import java.io.Serializable;
 
-public class RegisterInfo implements Serializable {
-    private Login login;
+public abstract class RegisterInfo implements Serializable {
     private String status;
     private String msg;
-
-    public RegisterInfo() {
-    }
-
-    public Login getBlogUser() {
-        return login;
-    }
-
-    public void setBlogUser(Login login) {
-        this.login = login;
-    }
 
     public String getStatus() {
         return status;
@@ -34,5 +22,16 @@ public class RegisterInfo implements Serializable {
 
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    public static RegisterInfo getSuccessfulRegisterInfo(Login login) {
+        SuccessfulRegisterInfo successfulRegisterInfo = new SuccessfulRegisterInfo(login.getId(), login.getAccount(), "http://avatar.com/1.png", login.getUpdatedAt(), login.getCreatedAt());
+        successfulRegisterInfo.setStatus("ok");
+        successfulRegisterInfo.setMsg("注册成功");
+        return successfulRegisterInfo;
+    }
+
+    public static RegisterInfo getFailureRegisterInfo(String msg) {
+        return new FailureRegisterInfo(msg);
     }
 }

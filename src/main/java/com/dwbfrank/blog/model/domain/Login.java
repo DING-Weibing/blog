@@ -1,22 +1,28 @@
 package com.dwbfrank.blog.model.domain;
 
-import java.io.Serializable;
+import java.time.Instant;
 
-public class Login implements Serializable {
-    private String username;
+public class Login {
+    private int id;
+    private String account;
     private String password;
+    private Instant createdAt;
+    private Instant updatedAt;
 
-    public Login(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public int getId() {
+        return id;
     }
 
-    public String getUsername() {
-        return username;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getPassword() {
@@ -25,5 +31,21 @@ public class Login implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Instant getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Instant createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Instant getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
     }
 }

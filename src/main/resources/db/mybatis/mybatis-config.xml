@@ -3,7 +3,10 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <typeAliases>
+        <package name="com.dwbfrank.blog.model.domain"/>
+    </typeAliases>
     <mappers>
-        <mapper resource="db/mybatis/mapper/UserMapper.xml"/>
+        <mapper resource="db/mybatis/mapper/LoginMapper.xml"/>
     </mappers>
 </configuration>

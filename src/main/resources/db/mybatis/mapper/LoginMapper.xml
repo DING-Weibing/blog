@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dwbfrank.blog.dao.mybatis.mapper.LoginMapper">
+    <select id="selectByAccount" resultMap="loginResultMap">
+        SELECT id, account, password, created_at, updated_at
+        FROM login
+        WHERE account = #{account}
+    </select>
+    <resultMap id="loginResultMap" type="Login">
+        <id property="id" column="id"/>
+        <result property="account" column="account"/>
+        <result property="password" column="password"/>
+        <result property="createdAt" column="created_At"/>
+        <result property="updatedAt" column="updated_At"/>
+    </resultMap>
+    <insert id="insertLogin" parameterType="Login" useGeneratedKeys="true" keyProperty="id"
+            keyColumn="id">
+        INSERT INTO login (account, password)
+        VALUES (#{account}, #{password})
+    </insert>
+</mapper>
