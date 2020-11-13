@@ -2,7 +2,7 @@ package com.dwbfrank.blog.dao.mybatis;
 
 import com.dwbfrank.blog.dao.AuthDao;
 import com.dwbfrank.blog.dao.mybatis.mapper.LoginMapper;
-import com.dwbfrank.blog.model.domain.Login;
+import com.dwbfrank.blog.model.entity.Login;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;

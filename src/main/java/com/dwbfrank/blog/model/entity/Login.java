@@ -1,4 +1,4 @@
-package com.dwbfrank.blog.model.domain;
+package com.dwbfrank.blog.model.entity;
 
 import java.time.Instant;
 

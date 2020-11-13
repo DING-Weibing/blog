@@ -1,6 +1,6 @@
 package com.dwbfrank.blog.controller;
 
-import com.dwbfrank.blog.model.dto.RegisterInfo;
+import com.dwbfrank.blog.model.dto.RegisterResult;
 import com.dwbfrank.blog.service.AuthService;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,7 +23,7 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public RegisterInfo register(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
+    public RegisterResult register(@RequestParam(name = "username") String username, @RequestParam(name = "password") String password) {
         return authService.register(username, password);
     }
 

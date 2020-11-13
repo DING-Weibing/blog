@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-        <package name="com.dwbfrank.blog.model.domain"/>
+        <package name="com.dwbfrank.blog.model.entity"/>
     </typeAliases>
     <mappers>
         <mapper resource="db/mybatis/mapper/LoginMapper.xml"/>

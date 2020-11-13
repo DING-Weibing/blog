@@ -1,10 +1,10 @@
 package com.dwbfrank.blog.service;
 
-import com.dwbfrank.blog.model.domain.Login;
-import com.dwbfrank.blog.model.dto.RegisterInfo;
+import com.dwbfrank.blog.model.dto.RegisterResult;
+import com.dwbfrank.blog.model.entity.Login;
 
 public interface AuthService {
-    RegisterInfo register(String username, String password);
+    RegisterResult register(String username, String password);
 
     Login login(String username, String password);
 

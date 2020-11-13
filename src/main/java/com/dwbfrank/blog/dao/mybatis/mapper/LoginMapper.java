@@ -1,6 +1,6 @@
 package com.dwbfrank.blog.dao.mybatis.mapper;
 
-import com.dwbfrank.blog.model.domain.Login;
+import com.dwbfrank.blog.model.entity.Login;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 

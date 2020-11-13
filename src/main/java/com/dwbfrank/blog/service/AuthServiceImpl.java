@@ -2,8 +2,8 @@ package com.dwbfrank.blog.service;
 
 import com.dwbfrank.blog.dao.AuthDao;
 import com.dwbfrank.blog.dao.DaoFactory;
-import com.dwbfrank.blog.model.domain.Login;
-import com.dwbfrank.blog.model.dto.RegisterInfo;
+import com.dwbfrank.blog.model.dto.RegisterResult;
+import com.dwbfrank.blog.model.entity.Login;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -20,18 +20,18 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public RegisterInfo register(String username, String password) {
+    public RegisterResult register(String username, String password) {
         if (username == null || username.isEmpty()) {
-            return RegisterInfo.getFailureRegisterInfo("用户名不可为空");
+            return RegisterResult.getFailureRegisterResult("用户名不可为空");
         }
         if (username.length() > 15) {
-            return RegisterInfo.getFailureRegisterInfo("用户名不得超过15个字符");
+            return RegisterResult.getFailureRegisterResult("用户名不得超过15个字符");
         }
         if (hasInvalidCharacter(username)) {
-            return RegisterInfo.getFailureRegisterInfo("只能是字母数字下划线中文");
+            return RegisterResult.getFailureRegisterResult("只能是字母数字下划线中文");
         }
         if (isAlreadyRegistered(username)) {
-            return RegisterInfo.getFailureRegisterInfo("用户名已被注册");
+            return RegisterResult.getFailureRegisterResult("用户名已被注册");
         }
 
         Login login = new Login();
@@ -39,9 +39,9 @@ public class AuthServiceImpl implements AuthService {
         login.setPassword(password);
         if (authDao.createAccount(login)) {
             login = authDao.getLoginByAccount(login.getAccount());
-            return RegisterInfo.getSuccessfulRegisterInfo(login);
+            return RegisterResult.getSuccessfulRegisterResult("注册成功", login);
         } else {
-            return RegisterInfo.getFailureRegisterInfo("注册失败");
+            return RegisterResult.getFailureRegisterResult("注册失败");
         }
     }
 
