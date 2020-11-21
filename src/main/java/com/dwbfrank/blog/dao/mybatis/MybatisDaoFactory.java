@@ -9,10 +9,10 @@ import javax.inject.Inject;
 
 @Component
 public class MybatisDaoFactory implements DaoFactory {
-    private final AuthDao authDao;
+    private final MybatisAuthDao authDao;
 
     @Inject
-    public MybatisDaoFactory(AuthDao authDao) {
+    public MybatisDaoFactory(MybatisAuthDao authDao) {
         this.authDao = authDao;
     }
 

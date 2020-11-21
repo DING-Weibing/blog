@@ -1,6 +1,6 @@
 package com.dwbfrank.blog.model.dto;
 
-public abstract class Result {
+public abstract class ResultDTO {
     private ResultStatus status;
 
     public String getStatus() {

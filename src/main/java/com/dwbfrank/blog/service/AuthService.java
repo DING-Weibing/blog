@@ -1,14 +1,18 @@
 package com.dwbfrank.blog.service;
 
-import com.dwbfrank.blog.model.dto.RegisterResult;
+import com.dwbfrank.blog.model.dto.auth.BasicLogin;
+import com.dwbfrank.blog.model.dto.auth.UserResultDTO;
 import com.dwbfrank.blog.model.entity.Login;
+import org.springframework.security.core.userdetails.UserDetails;
 
 public interface AuthService {
-    RegisterResult register(String username, String password);
+    UserResultDTO register(String username, String password);
 
-    Login login(String username, String password);
+    UserResultDTO login(BasicLogin basicLogin);
 
-    Object auth();
+    UserDetails loadUserByUsername(String username);
 
-    Object logout();
+    void logout();
+
+    Login getUser(String username);
 }
